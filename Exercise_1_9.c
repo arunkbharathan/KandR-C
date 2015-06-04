@@ -7,11 +7,14 @@ int c,d=0;
 while ((c = getchar()) != EOF)
 {
 
-    if (c != ' ')
+    if ((c == ' ') && (d == ' '))
     {
-        putchar(d);
+        d=c;
+        continue;
     }
+    putchar(d);
     d=c;
+
 }
 putchar(d);
 }
