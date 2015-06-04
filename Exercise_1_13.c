@@ -66,4 +66,6 @@ pwords[i]++;
 
 for (i = 0; i < 16; ++i)
 printf("%2d ",i);
+
+putchar('\n');
 }
