@@ -20,41 +20,20 @@ main()
             break;
         }
 
-
-        for(i=len;i>=0;i--)
+index[0]=0;c=1;
+        for(i=0;i<len;i++)
         {
            if(input[i]=='\n')
               {index[c]=i;c++;}
         }
-        index[c]=0;
-             for(i=0;i<=c+1;i++)
-             printf("%d==>%d\n",i,index[i]);
- putchar('\n');
-        for(i=0;i<c;i++)
-      {  for(j=index[i]-1;j>index[i+1]+1;j--)
-        {  /*putchar(input[j]);*/
-            if(input[j] > ' ')
-                {
+        for(j=1;j<c;++j)
+        { putchar('\n');
+        for(i=index[j]-1;i>=(index[j-1]+1);i--)
+            putchar(input[i]);
+            if(j==1)
+            putchar(input[index[j-1]]);
+}
 
-                continue;
-                }
-            else if((input[j] == ' ') || (input[j] == '\t') )
-            {
-                input[j]='\0';
-             /*   putchar(j);*/
-
-            }
-
-        }
-        putchar('\n');
-        }
-
-    /*    putchar('\n');
-        for(i=0;i<len;i++)
-            putchar(input[i]);*/
-
-for(i=0;i<len;i++)
-{putchar(input[i]);}
 
 
 
