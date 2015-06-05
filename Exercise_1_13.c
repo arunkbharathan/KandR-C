@@ -17,7 +17,7 @@ for (i = 0; i < 16; ++i)
 dots[i] = ' ';
 while ((c = getchar()) != EOF) {
 
-if (c == ' ' || c == '\n' || c == '\t')
+if (c == ' ' || c == '\n' || c == '\t') 
 {state = OUT;
  nwords[count]++;
 }
