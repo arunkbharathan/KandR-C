@@ -15,12 +15,17 @@ char longest[MAXLINE];
 
 max = 0;
 while ((len = getlyne(line, MAXLINE)) > 0)
+{
+if(len>MAXLINE)
+{printf("\nLine length %d larger than MAXLINE %d.\nIncrease array limit. \n\nProgram output not correct",len,MAXLINE);
+break;}
 if (len > max) {
 max = len;
 copy(longest, line);
 }
+}
 if (max > 0) /* there was a line */
-printf("%s", longest);
+printf("\nLongest is %s", longest);
 return 0;
 }
 
@@ -28,13 +33,16 @@ int getlyne(char s[],int lim)
 {
 int c, i;
 
-for (i=0; i < lim-1 && (c=getchar())!=EOF && c!='\n'; ++i)
+for (i=0; (c=getchar())!=EOF && c!='\n'; ++i)
 s[i] = c;
 if (c == '\n') {
 s[i] = c;
 ++i;
 }
 s[i] = '\0';
+
+
+
 return i;
 }
 /* copy: copy 'from' into 'to'; assume to is big enough */
