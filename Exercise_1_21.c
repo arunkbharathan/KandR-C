@@ -3,7 +3,7 @@
 #define TABSTOP 8
 
 int getlyne(char line_input[], int lim);
-int detab(char input[],char output[],int k);
+int entab(char input[],char output[],int k);
 main()
 {
 
@@ -22,7 +22,7 @@ main()
         if(len == 0)
         break;
 
- k=detab(input,output,k);
+ k=entab(input,output,k);
 
 
 
@@ -52,26 +52,36 @@ s[i] = '\0';
 return i;
 }
 
-int detab(char input[],char output[],int k)
+int entab(char input[],char output[],int k)
 {
-    int j=0,i=0,t=0,n=0;
+    int j=0,i=0,t=0,n=0,s=0,b=0,cpos=0;char y;
     for(i=0;input[i]!='\n';i++)
 {
-    if(input[i] == '\t')
-    {
-        t=TABSTOP-(n)%TABSTOP;
-        for(j=0;j<t;j++)
+        y = input[i];
+        if(y==' ')
+        {b++;s++;cpos++;}
+       else if(y=='\t')
+       {t++;cpos=cpos+TABSTOP-cpos%TABSTOP;b=b+TABSTOP-cpos%TABSTOP;}
+
+        if(cpos%TABSTOP == 0 )
         {
-        output[k] = ' ';
-        k++;n++;
+         if(s>0 && t==1)
+         {output[k]='\t';k++;t=0;s=0;b=0;}
+        if(s==0 && t==1)
+         {output[k]='\t';k++;t=0;s=0;b=0;}
+        if(s>0 && t==0 )
+        {output[k]='\t';k++;t=0;s=0;b=0;}
+
         }
 
-    }
-    else
-    {
-        output[k] = input[i];
-        k++;n++;
-    }
+        if(y != ' ' && y != '\t')
+        {
+            for(j=0;j<s;j++)
+                {output[k]=' ';k++;b=0;t=0;}
+            s=0;
+            output[k] = y;k++;cpos++;
+        }
+
 
 }
 output[k] = '\n';
