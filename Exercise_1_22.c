@@ -1,9 +1,9 @@
 #include <stdio.h>
-#define MAXLINE 1000
+#define MAXLINE 4000
 #define CPL 20  //coloumn per line
 
 int getlyne(char line_input[], int lim);
-int entab(char input[],char output[],int k,int len);
+int fold(char input[],char output[],int k,int len);
 main()
 {
 
@@ -22,7 +22,7 @@ main()
         if(len < CPL)
         {printf("\n%s",input);break;}
 
- k=entab(input,output,k,len);
+ k=fold(input,output,k,len);
 
 
 
@@ -52,7 +52,7 @@ s[i] = '\0';
 return i;
 }
 
-int entab(char input[],char output[],int k,int len)
+int fold(char input[],char output[],int k,int len)
 {
     int j=0,i=0,t=0,n=0,s=0,b=0,cpos=0;char y;
     for(i=CPL;i<len;i+=CPL)

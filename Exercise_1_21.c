@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define MAXLINE 1000
+#define MAXLINE 4000
 #define TABSTOP 8
 
 int getlyne(char line_input[], int lim);

@@ -1,9 +1,9 @@
 
 #include <stdio.h>
-#define MAXLINE 1000
+#define MAXLINE 4000
 
 int getlyne(char line_input[], int lim);
-
+int rm_blank(char input[],char output[],int k,int lim);
 main()
 {
 
@@ -21,29 +21,9 @@ main()
         }
         if(len == 0)
         break;
-c=len-1;i=0;j=0;
-
-while(input[c] < '0')
-{
-i++;
-input[c]='\0';
-j=0;
-if(c==0)
-{j=1;
-break;
-}
-c--;
-}
-if(j==0)
-{
-  for(i=0;input[i]!='\0';i++)
-    {output[k]=input[i];
-        k++;
-    }
-    output[k]='\n';k++;
-}
 
 
+k=rm_blank(input,output,k,len);
 
 
 
@@ -68,3 +48,28 @@ s[i] = '\0';
 return i;
 }
 
+int rm_blank(char input[],char output[],int k,int len)
+{  int i,j,c;
+ c=len-1;i=0;j=0;
+
+while(input[c] == ' ' || input[c] == '\t')
+{
+i++;
+input[c]='\0';
+j=0;
+if(c==0)
+{j=1;
+break;
+}
+c--;
+}
+if(j==0)
+{
+  for(i=0;input[i]!='\0';i++)
+    {output[k]=input[i];
+        k++;
+    }
+
+}
+return k;
+}
