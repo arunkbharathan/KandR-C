@@ -1,5 +1,13 @@
-By the way, there is a tendency to make everything in sight an extern variable because it
-appears to simplify communications - argument lists are short and variables are always there
-when you want them. But external variables are always there even when you don't want them.
-Relying too heavily on external variables is fraught with peril since it leads to programs whose
+'/'
+"/" //werer
+	   
+adsad/*dfg
+d"/* */"
+*/
+z
+'"'
+'\''
+"//"
+"/* */"/* */
+s
 
