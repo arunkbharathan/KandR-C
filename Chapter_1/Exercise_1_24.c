@@ -40,7 +40,7 @@ printf("\n%s\n",output);
 
 if(!chk_synt(output,k))
 {
-    printf("\nNo Errors.\n");
+    printf("\n%sNo Errors.\n","\x1B[31m");
 }
 return 0;
     }
@@ -137,11 +137,11 @@ j=x_barOR_w( w,x);
           w=x;x=y;
 }
     if((rF-lF)!=0)
-        printf("\n%d Flower Bracket Unmatched.\n",lF-rF);
+        printf("\n%s%d Flower Bracket Unmatched.\n","\x1B[31m",lF-rF);
      if((rS-lS)!=0)
-        printf("\n%d Square Bracket Unmatched.\n",lS-rS);
+        printf("\n%s%d Square Bracket Unmatched.\n","\x1B[31m",lS-rS);
      if((rR-lR)!=0)
-        printf("\n%d Round Bracket Unmatched.\n",lR-rR);
+        printf("\n%s%d Round Bracket Unmatched.\n","\x1B[31m",lR-rR);
     if((rF-lF)==0 && (rS-lS)==0 && (rR-lR)==0)
     {return 0;}
     else

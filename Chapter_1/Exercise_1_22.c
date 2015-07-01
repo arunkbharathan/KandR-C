@@ -1,13 +1,14 @@
 /*Write a program to ``fold'' long input lines into two or more shorter lines after
 the last non-blank character that occurs before the n-th column of input. Make sure your
 program does something intelligent with very long lines, and if there are no blanks or tabs
-before the specified column.*/
+before the specified column.*/ 
 #include <stdio.h>
 #define MAXLINE 4000
 #define CPL 20  //coloumn per line
 
 int getlyne(char line_input[], int lim);
-int fold(char input[],char output[],int k,int len);
+int fold(char input[],char output[],int k,int len,int copyflag );
+
 main()
 {
 
@@ -24,9 +25,9 @@ main()
             break;
         }
         if(len < CPL)
-        {printf("\n%s",input);break;}
+        {k=fold(input,output,k,len,1);continue;}
 
- k=fold(input,output,k,len);
+ k=fold(input,output,k,len,0);
 
 
 
@@ -56,25 +57,49 @@ s[i] = '\0';
 return i;
 }
 
-int fold(char input[],char output[],int k,int len)
+int fold(char input[],char output[],int k,int len,int copyflag)
 {
-    int j=0,i=0,t=0,n=0,s=0,b=0,cpos=0;char y;
+    int j=0,i=0,t=0,n=0,s=0,b=0,cpos=0,a=0;char y;
+    
+     if(copyflag == 1)
+    {
+         for(i=0;i<len;i++)
+{
+   
+    output[i+k] = input[i];
+
+        }
+    k=i+k;
+return k;
+     }
+   
     for(i=CPL;i<len;i+=CPL)
 {
         if(input[i] == ' ' || input[i] == '\t'|| input[i] == '\n')
             {input[i] = '\n';}
         else
             {
-                while(input[i] > ' ')
+                a=i;
+                while(input[i] > ' ' && i>=0)
                 {
                     i--;
                 }
+                
+                if(b==i)
+                {   
+                    i=a;
+                    continue;
+                }
+                b=i;
                 input[i]='\n';
             }
 
 
 }
-
+    
+  
+   
+ 
 
 for(i=k;t<(len-1);i++)
 {
@@ -87,5 +112,6 @@ for(i=k;t<(len-1);i++)
         }
     k=t+k;
 return k+1;
+
 }
 
