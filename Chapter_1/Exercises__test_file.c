@@ -13,6 +13,7 @@ step = 20;
 /* step size */
 printf("//asddede");
 printf("/* dgfgdgd*/");
+printf("/* dgfg\" dgd*/");
 fahr = lower;
 while (fahr <= upper) {
 celsius = 5 * (fahr-32) / 9;
