@@ -19,82 +19,79 @@ void double_min();
 void fixed_range();
 int header_limits_range();
 int header_float_range();
+
 void main()
 {
-   printf("\nFixed Point\n");
-   printf("____________\n\n");
-  printf("\nBy Calculation.\n\n");
-  fixed_range();
-   printf("\nFrom limits.h\n\n");
-  header_limits_range();
-  printf("\nFloating Point");
-  printf("\n________________\n\n");
-  printf("\nBy Calculation.\n\n");
-  float_max();
-  float_min();
-  double_max();
-  double_min();
-  long_double_max();
+	printf("\nFixed Point\n");
+   	printf("____________\n\n");
+  	printf("\nBy Calculation.\n\n");
+  	fixed_range();
+   	printf("\nFrom limits.h\n\n");
+  	header_limits_range();
+  	printf("\nFloating Point");
+  	printf("\n________________\n\n");
+  	printf("\nBy Calculation.\n\n");
+  	float_max();
+  	float_min();
+        double_max();
+        double_min();
+        long_double_max();
   
-   printf("\nFrom float.h\n\n");
- header_float_range();
-  
-  
-  
-
-    
+        printf("\nFrom float.h\n\n");
+        header_float_range();
+      
 }
 
 
 
 void float_max()
 {
-     float flt=1,temp,sum;
-   
-  unsigned int len=10000,cnt=0,i,exponent=0;
-  
-  for(i=0;i<len;i++)
-  {
-    //printf("%d=%f\n",i,flt);
-    flt*=2;
-    
-    if(isinf(flt))
-    {
-      exponent = i;
-      sum = temp;
-      break;
-    }
-      temp=flt;
-  }
-  
-  
-  for(i=exponent;i>=0;i--)
-  {   
-      
-      while(!isinf(temp))
-      {
-        sum=temp;
-        temp+=two_raiseto_f(i);
-        cnt++;
-        if(cnt>1000)
-            break;
-      }
-       temp=sum;
-       if(cnt>1000)
-            break;
-       cnt=0;
-  }
+	float flt=1,temp,sum;
+	unsigned int len=10000,cnt=0,i,exponent=0;
 
-  //printf("\nfloat max almost \n\n%f\n",sum);
-  printf("\nFloat max %.10e\n",sum);
+	for(i=0;i<len;i++)
+	{
+		//printf("%d=%f\n",i,flt);
+		flt*=2;
+		if(isinf(flt))
+		{
+			exponent = i;
+			sum = temp;
+			break;
+			
+	    	}
+		temp=flt;
+	
+	}
+ 
+	for(i=exponent;i>=0;i--)
+	{
+		while(!isinf(temp))
+		{
+			sum=temp;
+			temp+=two_raiseto_f(i);
+			cnt++;
+			if(cnt>1000)
+				break;
+			
+	  	}
+		temp=sum;
+		if(cnt>1000)
+			break;
+		cnt=0;
+	}
+
+	//printf("\nfloat max almost \n\n%f\n",sum);
+	printf("\nFloat max %.10e\n",sum);
 }
+
 
 void double_max()
 {
-      //DOUBLE
-  double flt=1,temp,sum;
-   
-  unsigned int len=10000,cnt=0,i,exponent=0;
+	//DOUBLE
+	double flt=1,temp,sum;
+	unsigned int len=10000,cnt=0,i,exponent=0;
+
   
   for(i=0;i<len;i++)
   {

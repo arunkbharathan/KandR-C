@@ -15,6 +15,7 @@ int main()
   printf("\nEnter a valid HEX value= ");  
   for (i=0; i < lim-1 && (c=getchar()) != '\n' && c != EOF; ++i)
       s[i] = c;
+  s[i] = '\0';
   
   printf("\nDecimal Value of hex %s is %lu\n",s,htoi(s));  
 
