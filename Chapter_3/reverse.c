@@ -1,0 +1,20 @@
+#include<stdio.h>
+#include<string.h>
+/* atoi: convert s to integer; version 2 */
+void reverse(char s[]);
+
+main()
+{
+	char s[]=",  -2382";
+	reverse(s);
+	printf("\nReverse string = %s\n",s);
+	return 0;
+}
+
+void reverse(char s[])
+{
+	int c, i, j;
+	for (i = 0, j = strlen(s)-1; i < j; i++, j--) {
+		c = s[i],s[i] = s[j],s[j] = c;
+		}
+}
