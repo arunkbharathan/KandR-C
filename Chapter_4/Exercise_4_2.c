@@ -1,14 +1,19 @@
+/*Exercise 4-2. Extend atof to handle scientific notation of the form
+123.45e-6
+where a floating-point number may be followed by e or E and an optionally signed exponent.*/
 #include <stdio.h>
+#include <math.h>
+#include <ctype.h>
 #define MAXLINE 100
 /* rudimentary calculator */
-main()
+int main()
 {
-	double sum, atof(char []);
+	double atof(char []);
 	char line[MAXLINE]="-897.6421";
 	int getlyne(char line[], int max);
-	sum = 0;
-		printf("\t%f\n",  atof(line));
-		printf("\t%d\n",  atoi(line));
+	printf("\nEnter a floating point value in scientific notation:\n");
+	getlyne(line, MAXLINE);
+	printf("\n%f\n",  atof(line));
 	return 0;
 }
 
@@ -16,6 +21,7 @@ main()
 double atof(char s[])
 {
     double val, power;
+    int exponent,expsign;
     int i, sign;
     for (i = 0; isspace(s[i]); i++) /* skip white space */
         ;
@@ -29,9 +35,16 @@ double atof(char s[])
     for (power = 1.0; isdigit(s[i]); i++) {
         val = 10.0 * val + (s[i] - '0');
         power *= 10;
-        
     }
-    return sign * val / power;
+    if(s[i] == 'e' || s[i] == 'E')
+	    i++;
+    expsign = (s[i] == '-') ? -1 : 1;
+    if (s[i] == '+' || s[i] == '-')
+        i++;
+    for (exponent = 0; isdigit(s[i]); i++)
+	    exponent = 10 * exponent + (s[i] - '0');
+
+    return (sign * val / power)*pow(10,expsign*exponent);
     
 }
 
@@ -48,9 +61,3 @@ int getlyne(char s[], int lim)
 	return i;
 }
 
-/* atoi: convert string s to integer using atof */
-int atoi(char s[])
-{
-double atof(char s[]);
-return (int) atof(s);
-}

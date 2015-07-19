@@ -7,7 +7,7 @@ function for the other direction as well, converting escape sequences into the r
 void escape(char s[],char t[]);
 void deescape(char u[],char s[]);
 
-main() /* count digits, white space, others */
+int main() /* count digits, white space, others */
 {
 	int i;
 	char c,s[lim]="",t[lim]="",u[lim]="";

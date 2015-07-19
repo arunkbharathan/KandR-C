@@ -8,7 +8,7 @@ leading or trailing - is taken literally.*/
 #define lim 1000
 void expand(char s1[],char s2[]);
 
-main()
+int main()
 {
 	int i;
 	char c,s1[lim]="",s2[lim]="";

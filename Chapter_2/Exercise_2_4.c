@@ -23,6 +23,7 @@ int  main()
 
 	squeeze(s,q);
 	printf("\nSqueezed: %s\n",s);
+	return 0;
 
 }
 

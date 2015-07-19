@@ -18,7 +18,7 @@ int main()
   s[i] = '\0';
   
   printf("\nDecimal Value of hex %s is %lu\n",s,htoi(s));  
-
+  return 0;
 }
 
 
