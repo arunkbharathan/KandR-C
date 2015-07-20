@@ -215,7 +215,7 @@ void fixed_range()
 {
   unsigned char u_char=1,uct;
   unsigned short int us_int=1,usit;
-  unsigned  int  u_int=1,uit;
+  unsigned  int  u_int=1,uit=0;
   unsigned long int ul_int=1,ulit;
   unsigned long long int ull_int=1,ullit;
   

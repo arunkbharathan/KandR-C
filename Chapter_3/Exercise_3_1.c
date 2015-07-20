@@ -32,7 +32,7 @@ int main()
 	for(i=0;i<n;i++,arr[i]=i);
 	
 	t = clock();
-	result = binsearch1(-55, arr, n);
+	result = binsearch1(n/2, arr, n);
 	t = clock() - t;
 	printf("\nResult: %d\n",result);
 	
@@ -40,7 +40,7 @@ int main()
  
     printf("search() took %f seconds to execute \n", time_taken);
     t = clock();
-	result = binsearch2(-55, arr, n);
+	result = binsearch2(n/2, arr, n);
 	t = clock() - t;
 	time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
  
