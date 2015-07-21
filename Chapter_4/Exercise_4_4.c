@@ -1,3 +1,5 @@
+/*Exercise 4-4. Add the commands to print the top elements of the stack without popping, to
+duplicate it, and to swap the top two elements. Add a command to clear the stack.*/
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h>
@@ -13,6 +15,17 @@ double pop(void);
 /* reverse Polish calculator */
 int main()
 {
+	printf("\n INFO");
+	printf("\n------");
+	printf("\n\n Reverse Polish Calculator");
+	printf("\n\n entering 1 2 - does 1-2");
+	printf("\n Please enter 0.xx instead of .xx");
+	printf("\n ! + enter: swap top 2 element of stack.");
+	printf("\n # + enter: To print stack.");
+	printf("\n i j k #: adds digis i,j,k to stack, i is at top of stack.");
+	printf("\n @ + enter: Duplicate last element in stack.");
+	printf("\n $ + enter: clear the stack.");
+	printf("\n ~ + enter: delete element at top of stack.\n\n");
 	int type;
 	double op2,temp;
 	char s[MAXOP];

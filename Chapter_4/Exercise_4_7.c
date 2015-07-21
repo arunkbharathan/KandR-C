@@ -1,3 +1,5 @@
+/*Exercise 4-7. Write a routine ungets(s) that will push back an entire string onto the input.
+Should ungets know about buf and bufp , or should it just use ungetch ?*/
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h>
@@ -14,6 +16,27 @@ int store = 0;
 /* reverse Polish calculator */
 int main()
 {
+	printf("\n INFO");
+	printf("\n------");
+	printf("\n\n Reverse Polish Calculator");
+	printf("\n\n entering 1 2 - does 1-2");
+	printf("\n Please enter 0.xx instead of .xx");
+	printf("\n ! + enter: swap top 2 element of stack.");
+	printf("\n # + enter: To print stack.");
+	printf("\n i j k #: adds digis i,j,k to stack, i is at top of stack.");
+	printf("\n @ + enter: Duplicate last element in stack.");
+	printf("\n $ + enter: clear the stack.");
+	printf("\n ~ + enter: delete element at top of stack;");
+	printf("\n i s + enter: finds sin(i), i in degrees.");
+	printf("\n i e + enter: finds exp(i).");
+	printf("\n i j p + enter: finds pow(i,j).");
+	printf("\n Four variables are provided for storage.");
+	printf("\n W,X,Y and Z");
+	printf("\n i = W: store i to W and pushes i to stack.");
+	printf("\n i = W~: store i to W only.");
+	printf("\n Variable L contains the last value printed.\n\n");
+	
+
 	int type;
 	double op2,temp,W,X,Y,Z,L;
 	op2 = temp = W = X = Y = Z = L = 0;

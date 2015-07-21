@@ -1,3 +1,5 @@
+/*Exercise 4-5. Add access to library functions like sin , exp , and pow . See <math.h> in
+Appendix B, Section 4.*/
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h>
@@ -13,6 +15,20 @@ double pop(void);
 /* reverse Polish calculator */
 int main()
 {
+	printf("\n INFO");
+	printf("\n------");
+	printf("\n\n Reverse Polish Calculator");
+	printf("\n\n entering 1 2 - does 1-2");
+	printf("\n Please enter 0.xx instead of .xx");
+	printf("\n ! + enter: swap top 2 element of stack.");
+	printf("\n # + enter: To print stack.");
+	printf("\n i j k #: adds digis i,j,k to stack, i is at top of stack.");
+	printf("\n @ + enter: Duplicate last element in stack.");
+	printf("\n $ + enter: clear the stack.");
+	printf("\n ~ + enter: delete element at top of stack;");
+	printf("\n i s + enter: finds sin(i), i in degrees.");
+	printf("\n i e + enter: finds exp(i).");
+	printf("\n i j p + enter: finds pow(i,j).\n\n");
 	int type;
 	double op2,temp,W,X,Y,Z;
 	char s[MAXOP];

@@ -1,11 +1,14 @@
-/*Exercise 4-8. Suppose that there will never be more than one character of pushback. Modify
-getch and ungetch accordingly.*/
+/*Exercise 4-10. An alternate organization uses getline to read an entire input line; this makes
+getch and ungetch unnecessary. Revise the calculator to use this approach.*/
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h>
 #define MAXOP 100   /* max size of operand or operator */
 #define NUMBER '0'/* signal that a number was found */
-
+#define BUFSIZE 100
+char line[BUFSIZE];
+int lineP = 0;
+int len = 0;
 int print_stack(void);
 void clear_stack();
 
@@ -212,26 +215,28 @@ void clear_stack()
 	sp = 0;
 }
 
+int getlyne(char []);
 #include <ctype.h>
-int getch(void);
-void ungetch(int);
-void ungets(char s[]);
 /* getop: get next character or numeric operand */
 int getop(char s[])
 {
 	int i, c, d=0;
 
-	while ((s[0] = c = getch()) == ' ' || c == '\t')
+	if(len==lineP)
+        {
+            lineP = 0;
+            len = getlyne(line);
+        }
+
+	while ((s[0] = c = line[lineP++]) == ' ' || c == '\t')
 		;
 	s[1] = '\0';
 	if( s[0] == '-')
-		d = getch();
+		d = line[lineP+1];
 	if (!isdigit(c) && c != '.')
 	{
 		if( !isdigit(d))
 		{
-			if(s[0] == '-')
-				ungetch(d);
 			return c;    /* not a number */
 		}
 	}
@@ -247,32 +252,22 @@ int getop(char s[])
 	}
 
 	if (isdigit(c))    /* collect integer part */
-		while (isdigit(s[++i] = c = getch()))
+		while (isdigit(s[++i] = c =line[lineP++]))
 			;
 	if (c == '.')   /* collect fraction part */
-		while (isdigit(s[++i] = c = getch()))
+		while (isdigit(s[++i] = c = line[lineP++]))
 			;
 	s[i] = '\0';
-	if (c != EOF)
-		ungetch(c);
 	return NUMBER;
 }
 
-char buf;
-int bufp;
-int getch(void) /* get a (possibly pushed-back) character */
+int getlyne(char s1[])
 {
-	if (bufp > 0) 
-	{
-		bufp--;
-		return buf;
-	}
-	else
-		return getchar();
+	int i,c;
+	for (i=0; i < BUFSIZE-1 && (c=getchar()) != '\n' && c != EOF; ++i)
+		s1[i] = c;
+	s1[i] = '\n';
+	s1[++i] = '\0';
+	return i;
 }
 
-void ungetch(int c)  /* push character back on input */
-{
-	buf = c;
-	bufp = 1;
-}

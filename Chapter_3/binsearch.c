@@ -30,7 +30,7 @@ int binsearch(int x, int v[], int n)//(search x in array v of length n)
 	low = 0;
 	high = n - 1;
 	while (low <= high) {
-            mid = ((unsigned int)low>>1) + ((unsigned int)high>> 1); // Bug Fix for long arrays //(low+high)/2;
+            mid = (low + high)/2;//((unsigned int)low>>1) + ((unsigned int)high>> 1); // Bug Fix for long arrays //(low+high)/2;
             midVal = v[mid];
             
             if (midVal < x)

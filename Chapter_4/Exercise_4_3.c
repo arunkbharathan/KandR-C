@@ -1,3 +1,5 @@
+/*Exercise 4-3. Given the basic framework, it's straightforward to extend the calculator. Add the
+modulus (%) operator and provisions for negative numbers.*/
 #include <stdio.h>
 #include <stdlib.h> /* for atof() */
 #include <math.h>
@@ -10,6 +12,11 @@ double pop(void);
 /* reverse Polish calculator */
 int main()
 {
+	printf("\n INFO");
+	printf("\n------");
+	printf("\n\n Reverse Polish Calculator");
+	printf("\n\n entering 1 2 - does 1-2");
+	printf("\n Please enter 0.xx instead of .xx\n\n");
 	int type;
 	double op2;
 	char s[MAXOP];
