@@ -1,2 +1,2 @@
 # KandR-C
-Exercises of K&amp;R C
+Exercises of K&R C
