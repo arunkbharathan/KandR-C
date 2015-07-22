@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-/* atoi: convert s to integer; version 2 */
+
 void reverse(char s[]);
 
 main()
