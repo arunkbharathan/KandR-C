@@ -1,12 +1,13 @@
 /*Revise the main routine of the longest-line program so it will correctly print the
 length of arbitrary long input lines, and as much as possible of the text.*/
+
 #include <stdio.h>
-#define MAXLINE 10
+#define MAXLINE 50
 /* maximum input line length */
-int getlyne (char line[], int maxline);
+int getlyne (char *line, int maxline);
 void copy (char to[], char from[]);
 /* print the longest input*/
-main ()
+int main ()
 {
   int len;
 
@@ -21,7 +22,7 @@ main ()
       if (len > MAXLINE)
 	{
 	  printf
-	    ("\nLine length %d larger than MAXLINE %d.\nIncrease array limit. \n\nProgram output not correct",
+	    ("\nLine length %d larger than MAXLINE %d.\nIncrease array limit. \n\nProgram output not correct\n",
 	     len, MAXLINE);
 	  break;
 	}
@@ -36,19 +37,18 @@ main ()
   return 0;
 }
 
-int
-getlyne (char s[], int lim)
+int getlyne (char *s, int lim)
 {
   int c, i;
 
   for (i = 0; (c = getchar ()) != EOF && c != '\n'; ++i)
-    s[i] = c;
+    *(s + i) = c;
   if (c == '\n')
     {
-      s[i] = c;
+       *(s + i)  = c;
       ++i;
     }
-  s[i] = '\0';
+   *(s + i)  = '\0';
 
 
 
@@ -56,8 +56,7 @@ getlyne (char s[], int lim)
 }
 
 /* copy: copy 'from' into 'to'; assume to is big enough */
-void
-copy (char to[], char from[])
+void copy (char to[], char from[])
 {
   int i;
   i = 0;

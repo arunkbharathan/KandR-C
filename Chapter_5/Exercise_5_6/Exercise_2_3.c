@@ -41,14 +41,14 @@ unsigned long int htoi(char s[])
 {
   unsigned long int val=0,pos=1;
   int n,len;
-  for (len = 0; s[len] != '\0'; ++len);
+  for (len = 0; *(s + len) != '\0'; ++len);
   len--;
   while(len >= 0)
   {
-    if(isdigit(s[len]))
-      n = s[len] - '0';
+    if(isdigit(*(s + len)))
+      n = *(s + len) - '0';
     else
-      if((n=alpha_to_digit(s[len])) == -1)
+      if((n=alpha_to_digit(*(s + len))) == -1)
         break;
     
     val+=n*pos;

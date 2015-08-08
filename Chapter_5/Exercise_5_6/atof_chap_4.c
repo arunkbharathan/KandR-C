@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <ctype.h>
 #define MAXLINE 100
 /* rudimentary calculator */
-main()
+int atoi(char s[]);
+int main()
 {
-	double sum, atof(char []);
+	double  atof(char []);
 	char line[MAXLINE]="-897.6421";
 	int getlyne(char line[], int max);
-	sum = 0;
+	
 		printf("\t%f\n",  atof(line));
 		printf("\t%d\n",  atoi(line));
 	return 0;
@@ -17,17 +19,17 @@ double atof(char s[])
 {
     double val, power;
     int i, sign;
-    for (i = 0; isspace(s[i]); i++) /* skip white space */
+    for (i = 0; isspace(*(s+i)); i++) /* skip white space */
         ;
-    sign = (s[i] == '-') ? -1 : 1;
-    if (s[i] == '+' || s[i] == '-')
+    sign = (*(s+i) == '-') ? -1 : 1;
+    if (*(s+i) == '+' || *(s+i) == '-')
         i++;
-    for (val = 0.0; isdigit(s[i]); i++)
-        val = 10.0 * val + (s[i] - '0');
-    if (s[i] == '.')
+    for (val = 0.0; isdigit(*(s+i)); i++)
+        val = 10.0 * val + (*(s+i) - '0');
+    if (*(s+i) == '.')
         i++;
-    for (power = 1.0; isdigit(s[i]); i++) {
-        val = 10.0 * val + (s[i] - '0');
+    for (power = 1.0; isdigit(*(s+i)); i++) {
+        val = 10.0 * val + (*(s+i) - '0');
         power *= 10;
         
     }
@@ -41,10 +43,10 @@ int getlyne(char s[], int lim)
 	int c, i;
 	i = 0;
 	while (--lim > 0 && (c=getchar()) != EOF && c != '\n')
-		s[i++] = c;
+		*(s + i++)  = c;
 	if (c == '\n')
-		s[i++] = c;
-	s[i] = '\0';
+		*(s + i++) = c;
+	*(s+i) = '\0';
 	return i;
 }
 

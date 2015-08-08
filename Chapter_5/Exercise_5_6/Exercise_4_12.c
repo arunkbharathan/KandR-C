@@ -12,18 +12,18 @@ int main()
 	return 0;
 }
 
-void itoa(int n, char s[])
+void itoa(int n, char *s)
 {
 	static int i;
 	int sign = 1;
 	if(n < 0)
 	{
 		sign = -1;
-		s[i++] = '-';
+		*(s + i++) = '-';
 	}
 	if(n / 10)
 		itoa(sign*(n / 10), s);
 
-	s[i++] = sign*(n % 10) + '0';
-	s[i] = '\0';
+	*(s + i++) = sign*(n % 10) + '0';
+	*(s + i) = '\0';
 }

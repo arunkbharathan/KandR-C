@@ -3,7 +3,7 @@
 
 void reverse(char s[]);
 
-main()
+int main()
 {
 	char s[]=",  -2382";
 	reverse(s);
@@ -11,7 +11,7 @@ main()
 	return 0;
 }
 
-void reverse(char s[])
+void reverse(char *s)
 {
 	int c, i, j;
 	for (i = 0, j = strlen(s)-1; i < j; i++, j--) {
