@@ -1,14 +1,17 @@
 //Write a program that prints its input one word per line.
 #include <stdio.h>
 
-main()
+main ()
 {
-int c;
-while ((c = getchar()) != EOF) {
+  int c;
+  while ((c = getchar ()) != EOF)
+    {
 
-if (c == ' ' || c == '\n' || c == '\t')
-{putchar('\n');
-continue;}
-putchar(c);
-}
+      if (c == ' ' || c == '\n' || c == '\t')
+	{
+	  putchar ('\n');
+	  continue;
+	}
+      putchar (c);
+    }
 }

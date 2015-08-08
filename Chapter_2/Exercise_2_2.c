@@ -5,25 +5,26 @@
 
 #include<stdio.h>
 
-int main()
+int
+main ()
 {
-  int i=0,lim=20;
-  char c,s[1000];
+  int i = 0, lim = 20;
+  char c, s[1000];
 
-  while(i<lim-1)
-  {
-    if((c=getchar()) == '\n')
-      break;
-    if(c == EOF)
-      break;
-        
-    s[i++]=c;
+  while (i < lim - 1)
+    {
+      if ((c = getchar ()) == '\n')
+	break;
+      if (c == EOF)
+	break;
 
-  }
+      s[i++] = c;
 
-  s[i]='\0';
+    }
 
-  printf("\n%s\n",s);
+  s[i] = '\0';
 
-  return(0);
+  printf ("\n%s\n", s);
+
+  return (0);
 }

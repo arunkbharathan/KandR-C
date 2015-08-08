@@ -3,22 +3,28 @@ backspace by \b , and each backslash by \\ . This makes tabs and backspaces visi
 unambiguous way.*/
 #include <stdio.h>
 /* count lines in input */
-main()
+main ()
 {
-int c,t;
-while ((c = getchar()) != EOF)
-{
+  int c, t;
+  while ((c = getchar ()) != EOF)
+    {
 
-    if (c == '\b')
-        {printf("\\b");
-        continue;}
-    if (c == '\t')
-        {printf("\\t");
-        continue;}
-    if (c == '\\')
-        {
-        putchar('\\');continue;}
-    putchar(c);
-}
+      if (c == '\b')
+	{
+	  printf ("\\b");
+	  continue;
+	}
+      if (c == '\t')
+	{
+	  printf ("\\t");
+	  continue;
+	}
+      if (c == '\\')
+	{
+	  putchar ('\\');
+	  continue;
+	}
+      putchar (c);
+    }
 
 }

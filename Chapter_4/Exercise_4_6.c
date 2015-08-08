@@ -231,7 +231,7 @@ int getop(char s[])
 		{
 			if(s[0] == '-')
 				ungetch(d);
-			return c;    /* not a number */
+			return 0;    /* not a number */
 		}
 	}
 	if(s[0] == '-')
@@ -254,7 +254,7 @@ int getop(char s[])
 	s[i] = '\0';
 	if (c != EOF)
 		ungetch(c);
-	return NUMBER;
+	return 1;
 }
 
 #define BUFSIZE 100

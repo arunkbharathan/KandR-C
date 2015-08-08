@@ -1,6 +1,7 @@
 //Write a program to print the value of EOF .
 #include <stdio.h>
-void main()
+void
+main ()
 {
-    printf("Value of constant EOF is: %d\n",EOF);
+  printf ("Value of constant EOF is: %d\n", EOF);
 }
