@@ -1,9 +1,9 @@
 #include <stdio.h>
 /* copy input to output; 2nd version */
-main ()
+main()
 {
-  int c;
+    int c;
 
-  while ((c = getchar ()) != EOF)
-    putchar (c);
+    while ((c = getchar()) != EOF)
+	putchar(c);
 }

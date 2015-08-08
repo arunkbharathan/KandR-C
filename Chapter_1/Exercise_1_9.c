@@ -2,21 +2,20 @@
 more blanks by a single blank.*/
 #include <stdio.h>
 /* count lines in input */
-main ()
+int main()
 {
-  int c, d = 0;
+    int c, d = 0;
 
-  while ((c = getchar ()) != EOF)
-    {
+    while ((c = getchar()) != EOF) {
 
-      if ((c == ' ') && (d == ' '))
-	{
-	  d = c;
-	  continue;
+	if ((c == ' ') && (d == ' ')) {
+	    d = c;
+	    continue;
 	}
-      putchar (d);
-      d = c;
+	putchar(d);
+	d = c;
 
     }
-  putchar (d);
+    putchar(d);
+    return 0;
 }
