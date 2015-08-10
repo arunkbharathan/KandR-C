@@ -50,8 +50,6 @@ int getlyne (char *s, int lim)
     }
    *(s + i)  = '\0';
 
-
-
   return i;
 }
 

@@ -21,10 +21,10 @@ int main()
 		
 //	stringncat(s, t, n);
 //	printf("\nConcatenated : %s",s);
-//	stringncpy(s, t, n);
-//	printf("\nCopied string2 to above result : %s",s);
+	stringncpy(s, t, n);
+	printf("\nCopied string2 to above result : %s\n",s);
 
-	printf("Result : %d\n",stringncmp(s, t, n));
+//	printf("Result : %d\n",stringncmp(s, t, n));
 		
 	return 0;
 }
@@ -47,7 +47,7 @@ void stringncpy(char *a, const char *b, int j)
 		b++;
 		j--;
 	}
-	 
+	*++a = '\0'; 
 
 }
 
