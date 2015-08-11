@@ -1,5 +1,6 @@
 /* strindex: return index of t in s, -1 if none */
 #include <stdio.h>
+#include <stddef.h>
 
 int main()
 {
@@ -20,12 +21,16 @@ int main()
 
 int strindex(char s[], char t[])
 {
-    int i, j, k;
-    for (i = 0; *(s + i) != '\0'; i++) {
-	for (j = i, k = 0; *(t + k) != '\0' && *(s + j) == *(t + k);
-	     j++, k++);
-	if (k > 0 && *(t + k) == '\0')
-	    return i;
+    ptrdiff_t  j;
+    char *Ss,*St;
+    Ss = s;
+    St = t;
+    for (; *s != '\0';s++) {
+    
+	for (j = 0, t = St; *t != '\0' && *(s+j) == *t;j++,t++)
+        ;
+	if (t-St > 0 && *t == '\0')
+	    return s-Ss;
     }
     return -1;
 }
