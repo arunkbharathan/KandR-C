@@ -2,6 +2,7 @@
 length of arbitrary long input lines, and as much as possible of the text.*/
 
 #include <stdio.h>
+#include <string.h>
 #define MAXLINE 50
 /* maximum input line length */
 int getlyne (char *line, int maxline);
@@ -39,18 +40,16 @@ int main ()
 
 int getlyne (char *s, int lim)
 {
-  int c, i;
-
-  for (i = 0; (c = getchar ()) != EOF && c != '\n'; ++i)
-    *(s + i) = c;
+  int c;
+  char *v = s;
+  for (; (c = getchar ()) != EOF && c != '\n';)
+    *s++ = c;
   if (c == '\n')
-    {
-       *(s + i)  = c;
-      ++i;
-    }
-   *(s + i)  = '\0';
+  		*s++  = c;     
+    
+   *s  = '\0';
 
-  return i;
+  return strlen(v);
 }
 
 /* copy: copy 'from' into 'to'; assume to is big enough */

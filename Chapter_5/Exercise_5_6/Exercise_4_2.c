@@ -22,27 +22,27 @@ double atof(char s[])
 {
     double val, power;
     int exponent,expsign;
-    int i, sign;
-    for (i = 0; isspace(*(s + i)); i++) /* skip white space */
-        ;
-    sign = (*(s + i) == '-') ? -1 : 1;
-    if (*(s + i) == '+' || *(s + i) == '-')
-        i++;
-    for (val = 0.0; isdigit(*(s + i)); i++)
-        val = 10.0 * val + (*(s + i) - '0');
-    if (*(s + i) == '.')
-        i++;
-    for (power = 1.0; isdigit(*(s + i)); i++) {
-        val = 10.0 * val + (*(s + i) - '0');
+    int sign;
+    for (; isspace(*s);) /* skip white space */
+        s++;
+    sign = (*s == '-') ? -1 : 1;
+    if (*s == '+' || *s == '-')
+        s++;
+    for (val = 0.0; isdigit(*s); )
+        val = 10.0 * val + (*s++ - '0');
+    if (*s == '.')
+        s++;
+    for (power = 1.0; isdigit(*s);) {
+        val = 10.0 * val + (*s++ - '0');
         power *= 10;
     }
-    if(*(s + i) == 'e' || *(s + i) == 'E')
-	    i++;
-    expsign = (*(s + i) == '-') ? -1 : 1;
-    if (*(s + i) == '+' || *(s + i) == '-')
-        i++;
-    for (exponent = 0; isdigit(*(s + i)); i++)
-	    exponent = 10 * exponent + (*(s + i) - '0');
+    if(*s == 'e' || *s == 'E')
+	    s++;
+    expsign = (*s == '-') ? -1 : 1;
+    if (*s == '+' || *s == '-')
+        s++;
+    for (exponent = 0; isdigit(*s); )
+	    exponent = 10 * exponent + (*s++ - '0');
 
     return (sign * val / power)*pow(10,expsign*exponent);
     

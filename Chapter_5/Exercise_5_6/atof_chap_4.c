@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #define MAXLINE 100
 /* rudimentary calculator */
 int atoi(char s[]);
@@ -8,7 +9,7 @@ int main()
 	double  atof(char []);
 	char line[MAXLINE]="-897.6421";
 	int getlyne(char line[], int max);
-	getlyne(line, 100);
+	//getlyne(line, 100);
 		printf("\t%f\n",  atof(line));
 		printf("\t%d\n",  atoi(line));
 	return 0;
@@ -40,14 +41,15 @@ double atof(char s[])
 /* getlyne: get line into s, return length */
 int getlyne(char s[], int lim)
 {
-	int c, i;
-	i = 0;
+	int c;
+	char *v=s;
+	
 	while (--lim > 0 && (c=getchar()) != EOF && c != '\n')
 		*s++  = c;
 	if (c == '\n')
 		*s++ = c;
 	*s = '\0';
-	return i;
+	return strlen(v);
 }
 
 /* atoi: convert string s to integer using atof */

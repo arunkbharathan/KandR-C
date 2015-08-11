@@ -13,15 +13,15 @@ int main()
 
 int atoi(char s[])
 	{
-		int i, n, sign;
-		for (i = 0; isspace(*(s + i)); i++)
-			;
-		sign = (*(s + i) == '-') ? -1 : 1;
-		if (*(s + i) == '+' || *(s + i) == '-')
-			i++;
+		int n, sign;
+		for (; isspace(*s);)
+			s++;
+		sign = (*s  == '-') ? -1 : 1;
+		if (*s == '+' || *s == '-')
+			s++;
 		/* skip white space */
 		/* skip sign */
-		for (n = 0; isdigit(*(s + i)); i++)
-			n = 10 * n + (*(s + i) - '0');
+		for (n = 0; isdigit(*s);)
+			n = 10 * n + (*s++ - '0');
 		return sign * n;
 	}
