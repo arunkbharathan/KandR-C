@@ -46,7 +46,7 @@ int getlyne(char s[], int lim)
     s[i] = '\0';
     return i;
 }
-
+	
 int detab(char input[], char output[], int k)
 {
     int j = 0, i = 0, t = 0, n = 0;
